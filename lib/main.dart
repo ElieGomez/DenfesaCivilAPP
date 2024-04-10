@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:defensacivilapp/screens/Todo.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/Inicio.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Defenza civil',
+        routes: {'/prueba': (context) => TodosScroll()},
         home: Inicio());
   }
 }

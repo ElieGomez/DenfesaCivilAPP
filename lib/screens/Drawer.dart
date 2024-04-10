@@ -64,7 +64,7 @@ class DrawerContent extends StatelessWidget {
               title: Text("Servicios",
                   style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
               onTap: () {
-                Navigator.pushNamed(context, '/MomentosEspeciales');
+                Navigator.pushNamed(context, '/prueba');
               }),
           Divider(),
           ListTile(
