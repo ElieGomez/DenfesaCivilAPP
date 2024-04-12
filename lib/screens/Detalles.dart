@@ -39,15 +39,14 @@ class _DetallesState extends State<Detalles> {
   }
 
   void initializeVideoController() {
-    if (widget.videoPath == '1') {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    } else if (widget.videoPath == '2') {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    } else if (widget.videoPath == '3') {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    } else {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    }
+    // if (widget.videoPath == '1') {
+    //   videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
+    // }
+    // else {
+    //   videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
+    // }
+
+    videoController = VideoPlayerController.asset(widget.videoPath);
     flickManager = FlickManager(
       videoPlayerController: videoController,
     );
