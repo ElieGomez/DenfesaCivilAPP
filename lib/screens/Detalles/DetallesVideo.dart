@@ -38,11 +38,31 @@ class _DetallesVideoState extends State<DetallesVideo> {
     super.dispose();
   }
 
+  // void initializeVideoController() {
+  //   // esto es para videos que estan en la app
+  //   // videoController = VideoPlayerController.asset(widget.videoPath);
+  //   // flickManager = FlickManager(
+  //   //   videoPlayerController: videoController,
+  //   // );
+
+  //   flickManager = FlickManager(
+  //     videoPlayerController: VideoPlayerController.network(widget.videoPath),
+  //   );
+  //   videoController.initialize().then((_) {
+  //     setState(() {});
+  //   });
+  // }
+
   void initializeVideoController() {
-    videoController = VideoPlayerController.asset(widget.videoPath);
+    // Inicializa el controlador de video
+    videoController = VideoPlayerController.network(widget.videoPath);
+
+    // Inicializa el gestor de video con el controlador de video
     flickManager = FlickManager(
       videoPlayerController: videoController,
     );
+
+    // Llama a initialize() en el controlador de video y actualiza el estado después de que se inicialice
     videoController.initialize().then((_) {
       setState(() {});
     });

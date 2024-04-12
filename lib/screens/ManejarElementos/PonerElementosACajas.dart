@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, file_names, sized_box_for_whitespace
 
-import 'package:defensacivilapp/screens/ManejarElementos/CajasDeTodo.dart';
+import 'package:defensacivilapp/screens/ManejarElementos/MoldeCajasElementos.dart';
 import 'package:flutter/material.dart';
 
 import 'CajasModel.dart';
@@ -54,7 +54,7 @@ class TodosScroll extends StatelessWidget {
       ),
       body: PageView(
         scrollDirection: Axis.horizontal,
-        children: [VistaTodos(listaCajas: listaCajas)],
+        children: [TodosLosElementosEnCajas(listaCajas: listaCajas)],
       ),
     );
   }
@@ -63,7 +63,7 @@ class TodosScroll extends StatelessWidget {
 // Apartado en si con el background añadido personalizado
 // Donde quiero pasarle la info y la cantidad de cajas que yo quiera a cajasContent
 
-class VistaTodos extends StatelessWidget {
+class TodosLosElementosEnCajas extends StatelessWidget {
   final List<Caja> listaCajas;
   // List<Caja> myModelList = [
   //   Caja(
@@ -91,7 +91,7 @@ class VistaTodos extends StatelessWidget {
   //     videoPath: "assets/pruebaVideo.mkv",
   //   )
   // ];
-  const VistaTodos({
+  const TodosLosElementosEnCajas({
     Key? key,
     required this.listaCajas,
   }) : super(key: key);
@@ -101,7 +101,7 @@ class VistaTodos extends StatelessWidget {
     return Stack(
       children: [
         Background(),
-        CajasContent(todasLasCajas: listaCajas),
+        MoldearElementosEnCajas(todasLasCajas: listaCajas),
       ],
     );
   }
@@ -112,7 +112,7 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromRGBO(114, 51, 51, 1),
+      color: Color.fromRGBO(0, 0, 0, 1),
       alignment: Alignment.topCenter,
       // child:
       //     Image(image: AssetImage('assets/pruebaImg.png'), fit: BoxFit.cover),

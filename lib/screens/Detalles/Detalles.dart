@@ -27,7 +27,7 @@ class Detalles extends StatelessWidget {
         description: description,
       );
     } else {
-      return DetallesImage(
+      return DeetallesImage(
         imagePath: imagePath,
         name: name,
         description: description,
@@ -177,7 +177,7 @@ class DetallesImage extends StatelessWidget {
           children: [
             const SizedBox(height: 20),
             // Imagen
-            Image.asset(
+            Image.network(
               imagePath,
               fit: BoxFit.cover,
             ),
@@ -216,5 +216,91 @@ class DetallesImage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+///esto es una prueba
+class DeetallesImage extends StatelessWidget {
+  final String imagePath;
+  final String name;
+  final String description;
+
+  const DeetallesImage({
+    Key? key,
+    required this.imagePath,
+    required this.name,
+    required this.description,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: Colors.black,
+        title: Text(
+          name,
+          style: const TextStyle(color: Colors.white),
+        ),
+      ),
+      body: Container(
+        color: Colors.black,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 20),
+            // Imagen
+            _buildImage(),
+            const SizedBox(height: 10),
+            // Nombre del personaje
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            // Descripción del personaje
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: SingleChildScrollView(
+                  child: Text(
+                    description,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 15),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImage() {
+    if (imagePath.startsWith('assets/')) {
+      // La imagen proviene de recursos locales (assets)
+      return Image.asset(
+        imagePath,
+        fit: BoxFit.cover,
+      );
+    } else {
+      // La imagen proviene de una URL de red
+      return Image.network(
+        imagePath,
+        fit: BoxFit.cover,
+      );
+    }
   }
 }

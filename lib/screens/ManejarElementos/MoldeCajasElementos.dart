@@ -2,20 +2,21 @@
 
 import 'package:flutter/material.dart';
 
-import '../Detalles.dart';
+import '../Detalles/Detalles.dart';
 import 'CajasModel.dart';
 
-class CajasContent extends StatefulWidget {
+class MoldearElementosEnCajas extends StatefulWidget {
   final List<Caja> todasLasCajas;
 
-  const CajasContent({
+  const MoldearElementosEnCajas({
     Key? key,
     required this.todasLasCajas,
   }) : super(key: key);
 
 // apartado que incrusta las cajas
   @override
-  State<CajasContent> createState() => _CajasContentState();
+  State<MoldearElementosEnCajas> createState() =>
+      _MoldearElementosEnCajasState();
 
   static Widget _buildPhotoCard(BuildContext context, String imagePath,
       String name, String description, String videoPath) {
@@ -36,12 +37,7 @@ class CajasContent extends StatefulWidget {
         },
         child: Column(
           children: [
-            Image.asset(
-              imagePath,
-              width: 300,
-              height: 250,
-              fit: BoxFit.cover,
-            ),
+            _buildImage(imagePath),
             SizedBox(height: 15),
             Text(
               name,
@@ -57,10 +53,30 @@ class CajasContent extends StatefulWidget {
       ),
     );
   }
+
+  static Widget _buildImage(String imagePath) {
+    if (imagePath.startsWith('assets/')) {
+      // La imagen proviene de recursos locales (assets)
+      return Image.asset(
+        imagePath,
+        width: 300,
+        height: 250,
+        fit: BoxFit.cover,
+      );
+    } else {
+      // La imagen proviene de una URL de red
+      return Image.network(
+        imagePath,
+        width: 300,
+        height: 250,
+        fit: BoxFit.cover,
+      );
+    }
+  }
 }
 
 // Cajas que reciben los parametros
-class _CajasContentState extends State<CajasContent> {
+class _MoldearElementosEnCajasState extends State<MoldearElementosEnCajas> {
 // LLENANDO LAS CAJAS CON LA INFO QUE CONSEGUI Y PASANDOSELA / ESTRUCTURA DONDE ESTAN LAS CAJAS
   @override
   Widget build(BuildContext context) {
@@ -81,7 +97,7 @@ class _CajasContentState extends State<CajasContent> {
                   // Obtener el objeto en la posición actual
                   Caja item = widget.todasLasCajas[index];
                   // Construir y retornar una caja utilizando los datos del objeto
-                  return CajasContent._buildPhotoCard(
+                  return MoldearElementosEnCajas._buildPhotoCard(
                     context,
                     item.imagePath,
                     item.name,
