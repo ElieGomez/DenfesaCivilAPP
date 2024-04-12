@@ -2,6 +2,10 @@
 
 import 'package:flutter/material.dart';
 
+import 'ManejarElementos/CajasModel.dart';
+import 'ManejarElementos/Todo.dart';
+import 'Servicios.dart';
+
 class DrawerContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -57,16 +61,40 @@ class DrawerContent extends StatelessWidget {
                 Navigator.pushNamed(context, '/PersonajesEspeciales');
               }),
           Divider(),
+
+          //hecho
           ListTile(
-              leading: Icon(Icons.star,
-                  color: Color.fromARGB(
-                      255, 255, 255, 255)), // Ajuste del color del icono
-              title: Text("Servicios",
-                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
-              onTap: () {
-                Navigator.pushNamed(context, '/prueba');
-              }),
+            leading: Icon(Icons.star,
+                color: Color.fromARGB(
+                    255, 255, 255, 255)), // Ajuste del color del icono
+            title: Text("Servicios",
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FutureBuilder<List<Caja>>(
+                    future: obtenerServicios(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(child: CircularProgressIndicator());
+                      } else if (snapshot.hasError) {
+                        return Center(child: Text('Error al cargar los datos'));
+                      } else {
+                        return TodosScroll(
+                          listaCajas: snapshot.data!,
+                          titulo: 'Servicios',
+                        );
+                      }
+                    },
+                  ),
+                ),
+              );
+            },
+          ),
           Divider(),
+
+          //hecho
           ListTile(
               leading: Icon(Icons.text_snippet_outlined,
                   color: Color.fromARGB(

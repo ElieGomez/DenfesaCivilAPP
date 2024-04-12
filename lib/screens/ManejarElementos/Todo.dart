@@ -54,10 +54,7 @@ class TodosScroll extends StatelessWidget {
       ),
       body: PageView(
         scrollDirection: Axis.horizontal,
-        children: [
-          VistaTodos(listaCajas: listaCajas),
-          VistaTodos(listaCajas: listaCajas),
-        ],
+        children: [VistaTodos(listaCajas: listaCajas)],
       ),
     );
   }

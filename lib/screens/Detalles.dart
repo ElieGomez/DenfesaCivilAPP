@@ -1,9 +1,10 @@
-// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, deprecated_member_use, unnecessary_cast, prefer_const_constructors_in_immutables, library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors_in_immutables, file_names
+
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class Detalles extends StatefulWidget {
+class Detalles extends StatelessWidget {
   final String imagePath;
   final String name;
   final String description;
@@ -18,17 +19,49 @@ class Detalles extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DetallesState createState() => _DetallesState();
+  Widget build(BuildContext context) {
+    if (videoPath.isNotEmpty) {
+      return DetallesVideo(
+        videoPath: videoPath,
+        name: name,
+        description: description,
+      );
+    } else {
+      return DetallesImage(
+        imagePath: imagePath,
+        name: name,
+        description: description,
+      );
+    }
+  }
 }
 
-class _DetallesState extends State<Detalles> {
+class DetallesVideo extends StatefulWidget {
+  final String videoPath;
+  final String name;
+  final String description;
+
+  DetallesVideo({
+    Key? key,
+    required this.videoPath,
+    required this.name,
+    required this.description,
+  }) : super(key: key);
+
+  @override
+  _DetallesVideoState createState() => _DetallesVideoState();
+}
+
+class _DetallesVideoState extends State<DetallesVideo> {
   late VideoPlayerController videoController;
   late FlickManager flickManager;
 
   @override
   void initState() {
     super.initState();
-    initializeVideoController();
+    if (widget.videoPath.isNotEmpty) {
+      initializeVideoController();
+    }
   }
 
   @override
@@ -39,13 +72,6 @@ class _DetallesState extends State<Detalles> {
   }
 
   void initializeVideoController() {
-    // if (widget.videoPath == '1') {
-    //   videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    // }
-    // else {
-    //   videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    // }
-
     videoController = VideoPlayerController.asset(widget.videoPath);
     flickManager = FlickManager(
       videoPlayerController: videoController,
@@ -55,16 +81,93 @@ class _DetallesState extends State<Detalles> {
     });
   }
 
-// Apartado de detalles donde se muestra la info que se envio al darle click a la caja que esta en cajas detro de todo
+  @override
+  Widget build(BuildContext context) {
+    if (widget.videoPath.isNotEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          iconTheme: const IconThemeData(color: Colors.white),
+          backgroundColor: Colors.black,
+          title: Text(
+            widget.name,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+        body: Container(
+          color: Colors.black,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 20),
+              // Video
+              AspectRatio(
+                aspectRatio: 16 / 9,
+                child: FlickVideoPlayer(
+                  flickManager: flickManager,
+                ),
+              ),
+              const SizedBox(height: 10),
+              // Nombre del personaje
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Text(
+                  widget.name,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              // Descripción del personaje
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: SingleChildScrollView(
+                    child: Text(
+                      widget.description,
+                      textAlign: TextAlign.justify, // Justificar el texto
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return Container();
+    }
+  }
+}
+
+class DetallesImage extends StatelessWidget {
+  final String imagePath;
+  final String name;
+  final String description;
+
+  const DetallesImage({
+    Key? key,
+    required this.imagePath,
+    required this.name,
+    required this.description,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.black,
         title: Text(
-          widget.name,
-          style: TextStyle(color: Colors.white),
+          name,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
       body: Container(
@@ -72,37 +175,35 @@ class _DetallesState extends State<Detalles> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SizedBox(height: 20),
-            // Video
-            AspectRatio(
-              aspectRatio: 16 / 9,
-              child: FlickVideoPlayer(
-                flickManager: flickManager,
-              ),
+            const SizedBox(height: 20),
+            // Imagen
+            Image.asset(
+              imagePath,
+              fit: BoxFit.cover,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Nombre del personaje
             Padding(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Text(
-                widget.name,
-                style: TextStyle(
+                name,
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             // Descripción del personaje
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SingleChildScrollView(
                   child: Text(
-                    widget.description,
-                    textAlign: TextAlign.justify, // Justificar el texto
-                    style: TextStyle(
+                    description,
+                    textAlign: TextAlign.justify,
+                    style: const TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     ),
@@ -110,7 +211,7 @@ class _DetallesState extends State<Detalles> {
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
           ],
         ),
       ),
