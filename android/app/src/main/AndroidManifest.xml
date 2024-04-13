@@ -4,9 +4,9 @@
         android:icon="@mipmap/ic_launcher"
         android:name="androidx.multidex.MultiDexApplication">
         <!-- android:name="${applicationName}" -->
-
-
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDvkzjEA8ANlEYsLzEnzjmnVV_45ZLytlM"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

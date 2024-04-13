@@ -15,32 +15,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // List<Caja> myModelList = [
-    //   Caja(
-    //     imagePath: "assets/elgei.png",
-    //     name: "Elclitori",
-    //     description: "heos",
-    //     videoPath: "",
-    //   ),
-    //   Caja(
-    //     imagePath: "assets/pruebaImg.png",
-    //     name: "El mio",
-    //     description: "heos",
-    //     videoPath: "assets/pruebaVideo.mkv",
-    //   ),
-    //   Caja(
-    //     imagePath: "assets/pruebaImg.png",
-    //     name: "El mio",
-    //     description: "heos",
-    //     videoPath: "assets/pruebaVideo.mkv",
-    //   ),
-    //   Caja(
-    //     imagePath: "assets/pruebaImg.png",
-    //     name: "El mio",
-    //     description: "heos",
-    //     videoPath: "assets/pruebaVideo.mkv",
-    //   )
-    // ];
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Defenza civil',
