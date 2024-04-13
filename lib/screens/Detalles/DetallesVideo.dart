@@ -3,13 +3,13 @@ import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-class Detalles extends StatefulWidget {
+class DetallesVideo extends StatefulWidget {
   final String imagePath;
   final String name;
   final String description;
   final String videoPath;
 
-  Detalles({
+  DetallesVideo({
     Key? key,
     required this.imagePath,
     required this.videoPath,
@@ -18,10 +18,10 @@ class Detalles extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _DetallesState createState() => _DetallesState();
+  _DetallesVideoState createState() => _DetallesVideoState();
 }
 
-class _DetallesState extends State<Detalles> {
+class _DetallesVideoState extends State<DetallesVideo> {
   late VideoPlayerController videoController;
   late FlickManager flickManager;
 
@@ -38,19 +38,31 @@ class _DetallesState extends State<Detalles> {
     super.dispose();
   }
 
+  // void initializeVideoController() {
+  //   // esto es para videos que estan en la app
+  //   // videoController = VideoPlayerController.asset(widget.videoPath);
+  //   // flickManager = FlickManager(
+  //   //   videoPlayerController: videoController,
+  //   // );
+
+  //   flickManager = FlickManager(
+  //     videoPlayerController: VideoPlayerController.network(widget.videoPath),
+  //   );
+  //   videoController.initialize().then((_) {
+  //     setState(() {});
+  //   });
+  // }
+
   void initializeVideoController() {
-    if (widget.videoPath == '1') {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    } else if (widget.videoPath == '2') {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    } else if (widget.videoPath == '3') {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    } else {
-      videoController = VideoPlayerController.asset('assets/pruebaVideo.mkv');
-    }
+    // Inicializa el controlador de video
+    videoController = VideoPlayerController.network(widget.videoPath);
+
+    // Inicializa el gestor de video con el controlador de video
     flickManager = FlickManager(
       videoPlayerController: videoController,
     );
+
+    // Llama a initialize() en el controlador de video y actualiza el estado después de que se inicialice
     videoController.initialize().then((_) {
       setState(() {});
     });
