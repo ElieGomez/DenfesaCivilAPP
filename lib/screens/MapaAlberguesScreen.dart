@@ -33,6 +33,7 @@ class MapaAlberguesScreen extends StatefulWidget {
 class _MapaAlberguesState extends State<MapaAlberguesScreen> {
   late GoogleMapController mapController;
   late List<Albergue> albergues = [];
+  late Set<Marker> markers = {};
 
   @override
   void initState() {
@@ -58,6 +59,17 @@ class _MapaAlberguesState extends State<MapaAlberguesScreen> {
             lng: double.parse(data['lng']),
           );
         }).toList();
+
+        markers = albergues.map((albergue) {
+          return Marker(
+            markerId: MarkerId(albergue.codigo),
+            position: LatLng(albergue.lng, albergue.lat),
+            infoWindow: InfoWindow(
+              title: albergue.edificio,
+              snippet: 'Ciudad: ${albergue.ciudad}\nTeléfono: ${albergue.telefono}\nCapacidad: ${albergue.capacidad}',
+            ),
+          );
+        }).toSet();
       });
     } else {
       throw Exception('Error al cargar los datos');
@@ -78,16 +90,7 @@ class _MapaAlberguesState extends State<MapaAlberguesScreen> {
           target: LatLng(18.47893, -69.89178),
           zoom: 10,
         ),
-        markers: albergues.map((albergue) {
-          return Marker(
-            markerId: MarkerId(albergue.codigo),
-            position: LatLng(albergue.lat, albergue.lng),
-            infoWindow: InfoWindow(
-              title: albergue.edificio,
-              snippet: 'Ciudad: ${albergue.ciudad}\nTeléfono: ${albergue.telefono}\nCapacidad: ${albergue.capacidad}',
-            ),
-          );
-        }).toSet(),
+        markers: markers,
       ),
     );
   }
