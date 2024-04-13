@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, file_names
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, file_names, unused_local_variable
 
 import 'package:defensacivilapp/screens/Detalles/Detalles.dart';
 import 'package:flutter/material.dart';
 
+import 'Apartados Data/AcercaDe.dart';
 import 'Apartados Data/Historia.dart';
 import 'Apartados Data/MedidasPreventivas.dart';
 import 'Apartados Data/Miembros.dart';
@@ -281,16 +282,26 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           ListTile(
-              leading: Icon(Icons.text_snippet_outlined,
-                  color: Color.fromARGB(
-                      255, 255, 255, 255)), // Ajuste del color del icono
-              title: Text(
-                "Acerca de",
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, '/AcercaDe');
-              }),
+            leading: Icon(Icons.text_snippet_outlined,
+                color: Color.fromARGB(
+                    255, 255, 255, 255)), // Ajuste del color del icono
+            title: Text(
+              "Acerca de",
+              style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+            ),
+            onTap: () {
+              List<Caja> desarrolladores = obtenerDesarrolladores();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TodosScroll(
+                    listaCajas: desarrolladores,
+                    titulo: 'Desarrolladores',
+                  ),
+                ),
+              );
+            },
+          ),
           Divider(),
           ListTile(
               leading: Icon(Icons.text_snippet_outlined,
