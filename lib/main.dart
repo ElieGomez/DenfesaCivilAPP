@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:defensacivilapp/screens/Todo.dart';
+import 'package:defensacivilapp/screens/AlberguesScreen.dart';
+import 'package:defensacivilapp/screens/MapaAlberguesScreen.dart';
+import 'package:defensacivilapp/screens/ServiciosScreen.dart';
+import 'package:defensacivilapp/screens/VideosScreen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/Inicio.dart';
@@ -15,7 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Defenza civil',
-        routes: {'/prueba': (context) => TodosScroll()},
+        routes: {'/servicios': (context) => ServiciosScreen(), 
+                 '/videos':(context) => VideosScreen(),
+                 '/albergues':(context) => AlberguesScreen(),
+                 '/mapaalbergues':(context) => MapaAlberguesScreen(),
+                },
         home: Inicio());
   }
 }

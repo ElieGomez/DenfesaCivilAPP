@@ -64,7 +64,7 @@ class DrawerContent extends StatelessWidget {
               title: Text("Servicios",
                   style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
               onTap: () {
-                Navigator.pushNamed(context, '/prueba');
+                Navigator.pushNamed(context, '/servicios');
               }),
           Divider(),
           ListTile(
@@ -80,7 +80,7 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           ListTile(
-              leading: Icon(Icons.co_present_outlined,
+              leading: Icon(Icons.movie_creation_sharp,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -88,11 +88,11 @@ class DrawerContent extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/EnMiVida');
+                Navigator.pushNamed(context, '/videos');
               }),
           Divider(),
           ListTile(
-              leading: Icon(Icons.work_outlined,
+              leading: Icon(Icons.zoom_out_map_sharp,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -100,7 +100,19 @@ class DrawerContent extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/Contratame');
+                Navigator.pushNamed(context, '/albergues');
+              }),
+          Divider(),
+          ListTile(
+              leading: Icon(Icons.place,
+                  color: Color.fromARGB(
+                      255, 255, 255, 255)), // Ajuste del color del icono
+              title: Text(
+                "Mapa Albergues",
+                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/mapaalbergues');
               }),
           Divider(),
           ListTile(
