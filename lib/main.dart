@@ -6,7 +6,7 @@ import 'package:defensacivilapp/screens/ServiciosScreen.dart';
 import 'package:defensacivilapp/screens/VideosScreen.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/Inicio.dart';
+import 'screens/InicioScreen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
                  '/videos':(context) => VideosScreen(),
                  '/albergues':(context) => AlberguesScreen(),
                  '/mapaalbergues':(context) => MapaAlberguesScreen(),
+                 '/inicio':(context) => InicioScreen(),
                 },
-        home: Inicio());
+        home: InicioScreen());
   }
 }
