@@ -48,6 +48,7 @@ class MyApp extends StatelessWidget {
                  '/videos':(context) => VideosScreen(),
                  '/albergues':(context) => AlberguesScreen(),
                  '/mapaalbergues':(context) => MapaAlberguesScreen(),
+                 '/home':(context) => Inicio(),
                 },
         home: Inicio());
   }
