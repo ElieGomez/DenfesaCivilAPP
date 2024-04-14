@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:defensacivilapp/screens/Inicio.dart';
+import 'package:defensacivilapp/screens/InicioScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -55,7 +55,7 @@ class _InicioSesionState extends State<InicioSesion> {
             .setToken(jsonResponse['datos']['token']);
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Inicio()),
+          MaterialPageRoute(builder: (context) => InicioScreen()),
         );
         usuarioController.text = "";
         contrasenaController.text = "";
