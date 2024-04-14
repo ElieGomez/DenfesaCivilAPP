@@ -5,6 +5,7 @@ import 'package:defensacivilapp/screens/Configuracion.dart';
 import 'package:defensacivilapp/screens/MapaAlberguesScreen.dart';
 import 'package:defensacivilapp/screens/Post-Login/MapaSituaciones.dart';
 import 'package:defensacivilapp/screens/Post-Login/NewsEspecificas.dart';
+import 'package:defensacivilapp/screens/Post-Login/ReportSituaciones.dart';
 import 'package:defensacivilapp/screens/Post-Login/Situaciones.dart';
 import 'package:defensacivilapp/screens/ServiciosScreen.dart';
 import 'package:defensacivilapp/screens/VideosScreen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           '/mapaalbergues': (context) => MapaAlberguesScreen(),
           '/serVoluntario': (context) => SingUp(),
           '/situaciones': (context) => Situaciones(),
+          '/reportSituaciones': (context) => Report(),
           '/mapadesituaciones': (context) => MapaSituaciones(),
           '/configuracion': (context) => ConfiguracionView(),
         },

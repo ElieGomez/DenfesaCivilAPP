@@ -277,20 +277,20 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           if (tokenProvider.token == '')
-          ListTile(
-              leading: Icon(Icons.volunteer_activism,
-                  color: Color.fromARGB(
-                      255, 255, 255, 255)), // Ajuste del color del icono
-              title: Text(
-                "Ser voluntario",
-                style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, '/serVoluntario');
-              }),
+            ListTile(
+                leading: Icon(Icons.volunteer_activism,
+                    color: Color.fromARGB(
+                        255, 255, 255, 255)), // Ajuste del color del icono
+                title: Text(
+                  "Ser voluntario",
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/serVoluntario');
+                }),
           if (tokenProvider.token == '') Divider(),
           if (tokenProvider.token != '')
-          ListTile(
+            ListTile(
                 leading: Icon(Icons.place_sharp,
                     color: Color.fromARGB(
                         255, 255, 255, 255)), // Ajuste del color del icono
@@ -313,6 +313,19 @@ class DrawerContent extends StatelessWidget {
                 ),
                 onTap: () {
                   Navigator.pushNamed(context, '/mapadesituaciones');
+                }),
+          if (tokenProvider.token != '') Divider(),
+          if (tokenProvider.token != '')
+            ListTile(
+                leading: Icon(Icons.place_sharp,
+                    color: Color.fromARGB(
+                        255, 255, 255, 255)), // Ajuste del color del icono
+                title: Text(
+                  "Reportar situacion",
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/reportSituaciones');
                 }),
           if (tokenProvider.token != '') Divider(),
           ListTile(
