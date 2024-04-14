@@ -51,7 +51,7 @@ class DrawerContent extends StatelessWidget {
             title: Text("Inicio",
                 style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
             onTap: () {
-              Navigator.pushNamed(context, '/Inicio');
+              Navigator.pushNamed(context, '/inicio');
             },
           ),
           Divider(),
