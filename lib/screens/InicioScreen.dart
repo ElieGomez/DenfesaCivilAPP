@@ -112,7 +112,7 @@ class _SliderSectionState extends State<SliderSection> {
                 title:
                     'Recorrido aéreo: Director Defensa Civil supervisa balnearios de Samaná, Puerto Plata y Montecristi',
                 description:
-                    'El director ejecutivo de la Defensa Civil, Juan Salas, realizó este viernes santo un recorrido aéreo de supervisión que incluyó las provincias Samaná, Puerto Plata y Montecristi, esto como parte de las acciones que ejecuta el organismo naranja en el operativo “Conciencia por la Vida, Semana Santa 2024”.\n\nSalas, quien se hizo acompañar de varios periodistas de distintos medios de comunicación y oficiales de la Fuerza aérea dominicana, dijo que esta supervisión se realiza con el objetivo de garantizar la seguridad y la tranquilidad de la población durante el asueto de la Semana Mayor.',
+                    'El director ejecutivo de la Defensa Civil, Juan Salas, realizó este viernes santo un recorrido aéreo de supervisión que incluyó las provincias Samaná, Puerto Plata y Montecristi, esto como parte de las acciones que ejecuta el organismo naranja en el operativo “Conciencia por la Vida, Semana Santa 2024”.\n\nSalas, quien se hizo acompañar de varios periodistas de distintos medios de comunicación y oficiales de la Fuerza aérea dominicana, dijo que esta supervisión se realiza con el objetivo de garantizar la seguridad y la tranquilidad.',
               ),
               SliderCard(
                 imagePath: 'assets/ImageInicio/image7.jpeg',

@@ -116,15 +116,15 @@ class DetallesSituacion extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Identificación: ${situacion['id']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                Text('Identificación: ${situacion['id']}', style: TextStyle(color: Colors.black,fontSize: 20)),
                 SizedBox(height: 8),
-                Text('Título: ${situacion['titulo']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                Text('Título: ${situacion['titulo']}', style: TextStyle(color: Colors.black,fontSize: 20)),
                 SizedBox(height: 8),
-                Text('Descripción: ${situacion['descripcion']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                Text('Descripción: ${situacion['descripcion']}', style: TextStyle(color: Colors.black,fontSize: 20)),
                 SizedBox(height: 8),
-                Text('Estado: ${situacion['estado']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                Text('Estado: ${situacion['estado']}', style: TextStyle(color: Colors.black,fontSize: 20)),
                 SizedBox(height: 8),
-                Text('Fecha: ${situacion['fecha']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                Text('Fecha: ${situacion['fecha']}', style: TextStyle(color: Colors.black,fontSize: 20)),
                 SizedBox(height: 10),
                 Image.memory(
                   base64Decode(situacion['foto']),
