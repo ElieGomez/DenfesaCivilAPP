@@ -40,23 +40,42 @@ class _SituacionesState extends State<Situaciones> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Situaciones'),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: Text('Situaciones',style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.black,
       ),
       body: ListView.builder(
         itemCount: situaciones.length,
         itemBuilder: (context, index) {
           var situacion = situaciones[index];
-          return ListTile(
-            title: Text(situacion['titulo']),
-            subtitle: Text(situacion['descripcion']),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
+          return Container(
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            padding: EdgeInsets.all(8.0),
+            child: ListTile(
+              title: Text(
+                situacion['titulo'],
+                style: TextStyle(color: Colors.white),
+              ),
+              subtitle: Text(
+                situacion['descripcion'],
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
                     builder: (context) =>
-                        DetallesSituacion(situacion: situaciones[index])),
-              );
-            },
+                        DetallesSituacion(situacion: situaciones[index]),
+                  ),
+                );
+              },
+            ),
           );
         },
       ),
@@ -74,27 +93,51 @@ class DetallesSituacion extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles de la Situación'),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: Text(
+          'Detalles de la Situación',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.black,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('Identificacion: ${situacion['id']}'),
-            Text('Título: ${situacion['titulo']}'),
-            Text('Descripción: ${situacion['descripcion']}'),
-            Text('Estado: ${situacion['estado']}'),
-            Text('Fecha: ${situacion['fecha']}'),
-            SizedBox(height: 10),
-            Image.memory(
-              base64Decode(situacion['foto']),
-              // width: 200,
-              // height: 200,
+      body: Container(
+        color: Colors.black,
+        padding: EdgeInsets.all(8.0),
+        child: Card(
+          color: Colors.white,
+          elevation: 2.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Identificación: ${situacion['id']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                SizedBox(height: 8),
+                Text('Título: ${situacion['titulo']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                SizedBox(height: 8),
+                Text('Descripción: ${situacion['descripcion']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                SizedBox(height: 8),
+                Text('Estado: ${situacion['estado']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                SizedBox(height: 8),
+                Text('Fecha: ${situacion['fecha']}', style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20)),
+                SizedBox(height: 10),
+                Image.memory(
+                  base64Decode(situacion['foto']),
+                  // width: 200,
+                  // height: 200,
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
+
+
