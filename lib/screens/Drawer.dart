@@ -268,7 +268,7 @@ class DrawerContent extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/AcercaDe');
+                Navigator.pushNamed(context, '/serVoluntario');
               }),
           Divider(),
           ListTile(
@@ -302,7 +302,7 @@ class DrawerContent extends StatelessWidget {
                 style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
               ),
               onTap: () {
-                Navigator.pushNamed(context, '/AcercaDe');
+                Navigator.pushNamed(context, '/configuracion');
               }),
           SizedBox(height: 10)
         ],
