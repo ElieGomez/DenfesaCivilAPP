@@ -4,7 +4,7 @@ import '../ManejarElementos/CajasModel.dart';
 List<Caja> obtenerDesarrolladores() {
   List<Caja> listaCajas = [
     Caja(
-      imagePath: "assets/ImageVideos/elmejor.png",
+      imagePath: "assets/Imagenes/Rusbel.png",
       name: "Rusbel Rodriguez Paulino",
       description: '''
       Soy Rusbel Rodríguez Paulino, desarrollador del Instituto Tecnológico de Las Américas (ITLA), especializado en el desarrollo del backend. Me destaco por mi dedicación y entrega en cada proyecto en el que me involucro. Con pasión y habilidades técnicas, me esfuerzo por crear soluciones eficientes y de calidad para satisfacer las necesidades del cliente.
@@ -12,34 +12,34 @@ List<Caja> obtenerDesarrolladores() {
       videoPath: "",
     ),
     Caja(
-      imagePath: "assets/ImageHistoria/DefenzaCivil.png",
+      imagePath: "assets/Imagenes/Wagner.jpg",
       name: "Wagner Jafet Matos Peña",
       description: '''
-Es simplemente el gei 1
+      Soy Wagner Jafet Matos Peña, desarrollador del Instituto Tecnológico de Las Américas (ITLA), especializado en el desarrollo del backend. Me destaco por mi dedicación y entrega en cada proyecto en el que me involucro. Con pasión y habilidades técnicas, me esfuerzo por crear soluciones eficientes y de calidad para satisfacer las necesidades del cliente.
       ''',
       videoPath: "",
     ),
     Caja(
-      imagePath: "assets/ImageVideos/elgei2.png",
+      imagePath: "assets/Imagenes/Eliezer.jpg",
       name: "Eliezer Vargaz Gomez",
       description: '''
-Es simplemente el gei 2
+      Soy Eliezer Vargas Gomez, desarrollador del Instituto Tecnológico de Las Américas (ITLA), especializado en el desarrollo del backend. Me destaco por mi dedicación y entrega en cada proyecto en el que me involucro. Con pasión y habilidades técnicas, me esfuerzo por crear soluciones eficientes y de calidad para satisfacer las necesidades del cliente.
       ''',
       videoPath: "",
     ),
     Caja(
-      imagePath: "assets/ImageVideos/elgei3.png",
+      imagePath: "assets/Imagenes/Wesley.jpg",
       name: "Wesley Jones Novas Mercedes",
       description: '''
-Es simplemente el gei 3
+      Soy Wesley Jones Novas Mercedes, desarrollador del Instituto Tecnológico de Las Américas (ITLA), especializado en el desarrollo del backend. Me destaco por mi dedicación y entrega en cada proyecto en el que me involucro. Con pasión y habilidades técnicas, me esfuerzo por crear soluciones eficientes y de calidad para satisfacer las necesidades del cliente.
       ''',
       videoPath: "",
     ),
     Caja(
-      imagePath: "assets/ImageVideos/melquis.png",
+      imagePath: "assets/Imagenes/Melquis.jpg",
       name: "Melquisedec Mateo Neris",
       description: '''
-Es simplemente el melquisereguereguere
+      Soy Melquisedec Mateo Neris, desarrollador del Instituto Tecnológico de Las Américas (ITLA), especializado en el desarrollo del backend. Me destaco por mi dedicación y entrega en cada proyecto en el que me involucro. Con pasión y habilidades técnicas, me esfuerzo por crear soluciones eficientes y de calidad para satisfacer las necesidades del cliente.
       ''',
       videoPath: "",
     )
