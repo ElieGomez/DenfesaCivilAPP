@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, file_names, unused_local_variable
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, file_names, unused_local_variable, unused_import
 
 import 'package:defensacivilapp/screens/Detalles/Detalles.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class DrawerContent extends StatelessWidget {
             title: Text("Inicio",
                 style: TextStyle(color: Color.fromARGB(255, 255, 255, 255))),
             onTap: () {
-              Navigator.pushNamed(context, '/PortadaYPersonajes');
+              Navigator.pushNamed(context, '/Inicio');
             },
           ),
           Divider(),
