@@ -71,37 +71,59 @@ class _AlberguesScreenState extends State<AlberguesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Albergues'),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: Text('Albergues', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black,
       ),
-      body: FutureBuilder<List<Albergue>>(
-        future: _alberguesFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else {
-            final List<Albergue> albergues = snapshot.data ?? [];
-            return ListView.builder(
-              itemCount: albergues.length,
-              itemBuilder: (context, index) {
-                final Albergue albergue = albergues[index];
-                return ListTile(
-                  title: Text(albergue.edificio),
-                  subtitle: Text(albergue.ciudad),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetallesAlbergueScreen(albergue: albergue),
+      body: Container(
+        color: Colors.white,
+        child: FutureBuilder<List<Albergue>>(
+          future: _alberguesFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  'Error: ${snapshot.error}',
+                  style: TextStyle(color: Colors.black),
+                ),
+              );
+            } else {
+              final List<Albergue> albergues = snapshot.data ?? [];
+              return ListView.builder(
+                itemCount: albergues.length,
+                itemBuilder: (context, index) {
+                  final Albergue albergue = albergues[index];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                    child: Card(
+                      color: Colors.black,
+                      elevation: 2.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                    );
-                  },
-                );
-              },
-            );
-          }
-        },
+                      child: ListTile(
+                        title: Text(albergue.edificio, style: TextStyle(color: Colors.white)),
+                        subtitle: Text(albergue.ciudad, style: TextStyle(color: Colors.white)),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetallesAlbergueScreen(albergue: albergue),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  );
+                },
+              );
+            }
+          },
+        ),
       ),
     );
   }
@@ -116,18 +138,33 @@ class DetallesAlbergueScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detalles del Albergue'),
+        iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: Text('Detalles del Albergue', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Edificio: ${albergue.edificio}'),
-            Text('Ciudad: ${albergue.ciudad}'),
-            Text('Coordinador: ${albergue.coordinador}'),
-            Text('Teléfono: ${albergue.telefono}'),
-            Text('Capacidad: ${albergue.capacidad}'),
-          ],
+      body: Container(
+        color: Colors.white,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: EdgeInsets.all(16.0),
+                color: Colors.black,
+                child: Column(
+                  children: [
+                    Text('Edificio: ${albergue.edificio}', style: TextStyle(color: Colors.white)),
+                    Text('Ciudad: ${albergue.ciudad}', style: TextStyle(color: Colors.white)),
+                    Text('Coordinador: ${albergue.coordinador}', style: TextStyle(color: Colors.white)),
+                    Text('Teléfono: ${albergue.telefono}', style: TextStyle(color: Colors.white)),
+                    Text('Capacidad: ${albergue.capacidad}', style: TextStyle(color: Colors.white)),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
