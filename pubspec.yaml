@@ -68,7 +68,7 @@ flutter:
   assets:
       - assets/
       - assets/ImageInicio/
-      - assets/ImageVideos/
+      - assets/Imagenes/
       - assets/ImageHistoria/
 
   #   - images/a_dot_burr.jpeg
