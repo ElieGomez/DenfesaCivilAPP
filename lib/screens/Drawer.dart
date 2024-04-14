@@ -175,7 +175,7 @@ class DrawerContent extends StatelessWidget {
                 }),
           if (tokenProvider.token != '') Divider(),
           ListTile(
-              leading: Icon(Icons.movie_creation_sharp,
+              leading: Icon(Icons.play_circle_outline,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -276,6 +276,7 @@ class DrawerContent extends StatelessWidget {
                 );
               }),
           Divider(),
+          if (tokenProvider.token == '')
           ListTile(
               leading: Icon(Icons.volunteer_activism,
                   color: Color.fromARGB(
@@ -287,7 +288,33 @@ class DrawerContent extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, '/serVoluntario');
               }),
-          Divider(),
+          if (tokenProvider.token == '') Divider(),
+          if (tokenProvider.token != '')
+          ListTile(
+                leading: Icon(Icons.place_sharp,
+                    color: Color.fromARGB(
+                        255, 255, 255, 255)), // Ajuste del color del icono
+                title: Text(
+                  "Situaciones",
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/situaciones');
+                }),
+          if (tokenProvider.token != '') Divider(),
+          if (tokenProvider.token != '')
+            ListTile(
+                leading: Icon(Icons.place_outlined,
+                    color: Color.fromARGB(
+                        255, 255, 255, 255)), // Ajuste del color del icono
+                title: Text(
+                  "Mapa de Situaciones",
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/mapadesituaciones');
+                }),
+          if (tokenProvider.token != '') Divider(),
           ListTile(
             leading: Icon(Icons.arrow_back_outlined,
                 color: Color.fromARGB(

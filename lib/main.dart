@@ -3,13 +3,14 @@
 import 'package:defensacivilapp/screens/AlberguesScreen.dart';
 import 'package:defensacivilapp/screens/Configuracion.dart';
 import 'package:defensacivilapp/screens/MapaAlberguesScreen.dart';
-import 'package:defensacivilapp/screens/NewsEspecificas.dart';
+import 'package:defensacivilapp/screens/Post-Login/MapaSituaciones.dart';
+import 'package:defensacivilapp/screens/Post-Login/NewsEspecificas.dart';
+import 'package:defensacivilapp/screens/Post-Login/Situaciones.dart';
 import 'package:defensacivilapp/screens/ServiciosScreen.dart';
 import 'package:defensacivilapp/screens/VideosScreen.dart';
 import 'package:defensacivilapp/screens/VoluntarioScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'screens/InicioScreen.dart';
 import 'screens/Post-Login/token.dart';
 
@@ -29,14 +30,16 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Defenza civil',
         routes: {
+          '/inicio': (context) => InicioScreen(),
           '/servicios': (context) => ServiciosScreen(),
+          '/newsEspecificas': (context) => NoticiasEspecificas(),
           '/videos': (context) => VideosScreen(),
           '/albergues': (context) => AlberguesScreen(),
           '/mapaalbergues': (context) => MapaAlberguesScreen(),
-          '/inicio': (context) => InicioScreen(),
           '/serVoluntario': (context) => SingUp(),
-          '/newsEspecificas': (context) => NoticiasEspecificas(),
-          '/configuracion': (context) => ConfiguracionView()
+          '/situaciones': (context) => Situaciones(),
+          '/mapadesituaciones': (context) => MapaSituaciones(),
+          '/configuracion': (context) => ConfiguracionView(),
         },
         home: InicioScreen());
   }
