@@ -9,7 +9,6 @@ import 'Apartados Data/MedidasPreventivas.dart';
 import 'Apartados Data/Miembros.dart';
 import 'Apartados Data/Noticias.dart';
 import 'Apartados Data/Servicios.dart';
-import 'Apartados Data/Videos.dart';
 import 'ManejarElementos/CajasModel.dart';
 import 'ManejarElementos/PonerElementosACajas.dart';
 
@@ -57,7 +56,7 @@ class DrawerContent extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.people,
+            leading: Icon(Icons.book_outlined,
                 color: Color.fromARGB(
                     255, 255, 255, 255)), // Ajuste del color del icono
             title: Text(
@@ -126,7 +125,7 @@ class DrawerContent extends StatelessWidget {
 
           //hecho
           ListTile(
-              leading: Icon(Icons.text_snippet_outlined,
+              leading: Icon(Icons.newspaper_sharp,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -195,7 +194,7 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           ListTile(
-              leading: Icon(Icons.text_snippet_outlined,
+              leading: Icon(Icons.medication_liquid_sharp,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -228,7 +227,7 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           ListTile(
-              leading: Icon(Icons.text_snippet_outlined,
+              leading: Icon(Icons.group_add_sharp,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -261,7 +260,7 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           ListTile(
-              leading: Icon(Icons.text_snippet_outlined,
+              leading: Icon(Icons.volunteer_activism,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
@@ -273,7 +272,7 @@ class DrawerContent extends StatelessWidget {
               }),
           Divider(),
           ListTile(
-            leading: Icon(Icons.text_snippet_outlined,
+            leading: Icon(Icons.arrow_back_outlined,
                 color: Color.fromARGB(
                     255, 255, 255, 255)), // Ajuste del color del icono
             title: Text(
@@ -295,7 +294,7 @@ class DrawerContent extends StatelessWidget {
           ),
           Divider(),
           ListTile(
-              leading: Icon(Icons.text_snippet_outlined,
+              leading: Icon(Icons.settings,
                   color: Color.fromARGB(
                       255, 255, 255, 255)), // Ajuste del color del icono
               title: Text(
