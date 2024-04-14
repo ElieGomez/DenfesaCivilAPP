@@ -49,25 +49,40 @@ class _NoticiasEspecificasState extends State<NoticiasEspecificas> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Noticias Específicas'),
+         iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: Text('Noticias Específicas', style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black,
       ),
-      body: ListView.builder(
-        itemCount: noticias.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(noticias[index].titulo),
-            subtitle: Text(noticias[index].fecha),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      DetalleNoticia(noticia: noticias[index]),
-                ),
-              );
-            },
-          );
-        },
+      body: Container(
+        color: Colors.white,
+        child: ListView.builder(
+          itemCount: noticias.length,
+          itemBuilder: (context, index) {
+            return Container(
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+              padding: EdgeInsets.all(8.0),
+              child: ListTile(
+                title: Text(noticias[index].titulo, style: TextStyle(color: Colors.white)),
+                subtitle: Text(noticias[index].fecha, style: TextStyle(color: Colors.white)),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          DetalleNoticia(noticia: noticias[index]),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -82,18 +97,23 @@ class DetalleNoticia extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(noticia.titulo),
+         iconTheme: IconThemeData(
+          color: Colors.white,
+        ),
+        title: Text(noticia.titulo, style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.black,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: Container(
+        color: Colors.white,
+        padding: EdgeInsets.all(8.0),
         child: ListView(
           children: [
             Text(
               noticia.fecha,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
             ),
             SizedBox(height: 8),
-            Text(noticia.contenido),
+            Text(noticia.contenido, style: TextStyle(color: Colors.black)),
             SizedBox(height: 8),
             Image.network(noticia.foto),
           ],
