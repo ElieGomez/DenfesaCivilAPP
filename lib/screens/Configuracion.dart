@@ -38,9 +38,12 @@ class ConfiguracionView extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => InicioSesion()),
                   );
                 },
-                child: Text('Login', style: TextStyle(color: Colors.white, fontSize: 20)),
+                child: Text('Login',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
+                  backgroundColor: Colors.black,
+
+                  // primary: Colors.black,
                 ),
               ),
             SizedBox(height: 16.0),
@@ -52,9 +55,11 @@ class ConfiguracionView extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => SingUp()),
                   );
                 },
-                child: Text('Registrarse', style: TextStyle(color: Colors.white, fontSize: 20)),
+                child: Text('Registrarse',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
+                  backgroundColor: Colors.black,
+                  // primary: Colors.black,
                 ),
               ),
             // Espacio adicional entre los botones y la parte inferior
@@ -66,9 +71,12 @@ class ConfiguracionView extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => ChangePassword()),
                   );
                 },
-                child: Text('Cambiar contraseña', style: TextStyle(color: Colors.white, fontSize: 20)),
+                child: Text('Cambiar contraseña',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
+                  backgroundColor: Colors.black,
+
+                  // primary: Colors.black,
                 ),
               ),
             SizedBox(height: 16.0),
@@ -81,9 +89,12 @@ class ConfiguracionView extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => InicioSesion()),
                   );
                 },
-                child: Text('Cerrar Sesión', style: TextStyle(color: Colors.white, fontSize: 20)),
+                child: Text('Cerrar Sesión',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
+                  backgroundColor: Colors.black,
+
+                  // primary: Colors.black,
                 ),
               ),
           ],

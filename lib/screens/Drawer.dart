@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, file_names, unused_local_variable, unused_import
 
 import 'package:defensacivilapp/screens/Detalles/Detalles.dart';
+import 'package:defensacivilapp/screens/Post-Login/token.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'Apartados Data/AcercaDe.dart';
 import 'Apartados Data/Historia.dart';
@@ -15,6 +17,8 @@ import 'ManejarElementos/PonerElementosACajas.dart';
 class DrawerContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final tokenProvider = Provider.of<AuthToken>(context);
+
     return Drawer(
       // backgroundColor: Color.fromARGB(255, 0, 0, 0).withGreen(0.8),
       backgroundColor: Colors.black,
@@ -157,6 +161,19 @@ class DrawerContent extends StatelessWidget {
                 );
               }),
           Divider(),
+          if (tokenProvider.token != '')
+            ListTile(
+                leading: Icon(Icons.newspaper_sharp,
+                    color: Color.fromARGB(
+                        255, 255, 255, 255)), // Ajuste del color del icono
+                title: Text(
+                  "Noticias Especificas",
+                  style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/newsEspecificas');
+                }),
+          if (tokenProvider.token != '') Divider(),
           ListTile(
               leading: Icon(Icons.movie_creation_sharp,
                   color: Color.fromARGB(

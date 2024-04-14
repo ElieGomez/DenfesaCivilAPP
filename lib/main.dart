@@ -3,6 +3,7 @@
 import 'package:defensacivilapp/screens/AlberguesScreen.dart';
 import 'package:defensacivilapp/screens/Configuracion.dart';
 import 'package:defensacivilapp/screens/MapaAlberguesScreen.dart';
+import 'package:defensacivilapp/screens/NewsEspecificas.dart';
 import 'package:defensacivilapp/screens/ServiciosScreen.dart';
 import 'package:defensacivilapp/screens/VideosScreen.dart';
 import 'package:defensacivilapp/screens/VoluntarioScreen.dart';
@@ -27,15 +28,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Defenza civil',
-        routes: {'/servicios': (context) => ServiciosScreen(), 
-                 '/videos':(context) => VideosScreen(),
-                 '/albergues':(context) => AlberguesScreen(),
-                 '/mapaalbergues':(context) => MapaAlberguesScreen(),
-                 '/inicio':(context) => InicioScreen(),
-                 '/serVoluntario': (context) => SingUp(),
-                 '/configuracion': (context) => ConfiguracionView()
-                },
+        routes: {
+          '/servicios': (context) => ServiciosScreen(),
+          '/videos': (context) => VideosScreen(),
+          '/albergues': (context) => AlberguesScreen(),
+          '/mapaalbergues': (context) => MapaAlberguesScreen(),
+          '/inicio': (context) => InicioScreen(),
+          '/serVoluntario': (context) => SingUp(),
+          '/newsEspecificas': (context) => NoticiasEspecificas(),
+          '/configuracion': (context) => ConfiguracionView()
+        },
         home: InicioScreen());
-       
   }
 }
